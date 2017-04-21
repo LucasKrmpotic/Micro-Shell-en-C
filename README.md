@@ -2,26 +2,23 @@
 
 ## Descripción
 
-    Esta aplicación, que emula un shell de linux, se hizo con el objetivo de ejercitar conceptos de sistmas operativos como señales, creación de procesos, pipes, etc. 
+Esta aplicación, que emula un shell de linux, se hizo con el objetivo de ejercitar conceptos de sistmas operativos como                         señales, creación de procesos, pipes, etc. 
 
-    No soporta redirecciones, ni ejecuciones condicionales por ||. 
+No soporta redirecciones, ni ejecuciones condicionales por ||. 
 
 ## Features
 
-    * Soporta ejecución de todos los comandos instalados.
+* Soporta ejecución de todos los comandos instalados.
     
-    * En la creacion de procesos para la ejecución de comandos, se envía el  
-    ambiente al proceso hijo, con lo cual NO es necesario ingresar los  
-    comandos con la ruta absoluta del ejecutable, con el nombre del  comando  
-    basta.
+* En la creacion de procesos para la ejecución de comandos, se envía el ambiente al proceso hijo, con lo cual NO es necesario ingresar los comandos con la ruta absoluta del ejecutable, con el nombre del  comando  basta.
     
-    * Soporta las concatenaciones por medio de pipes ( | ).
+* Soporta las concatenaciones por medio de pipes ( | ).
 
-    * Soporta ejecución condicionada de comandos por &&.
+* Soporta ejecución condicionada de comandos por &&.
 
-    En definitiva admite el ingreso de comandos como:
+En definitiva admite el ingreso de comandos como:
 
-            " ls -l | grep foo && cat foo | grep bar && ... | ..." 
+    " ls -l | grep foo && cat foo | grep bar && ... | ..." 
 
 
 Trabajo hecho a propuesta de la cátedra Sistemas Operativos de la UNPSJB.  
