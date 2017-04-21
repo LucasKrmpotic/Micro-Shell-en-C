@@ -10,7 +10,10 @@
 
     * Soporta ejecución de todos los comandos instalados.
     
-    * En la creacion de procesos para la ejecución de comandos, se envía el ambiente al proceso hijo, con lo cual NO es necesario ingresar los comandos con la ruta absoluta del ejecutable, con el nombre del  comando basta.
+    * En la creacion de procesos para la ejecución de comandos, se envía el  
+    ambiente al proceso hijo, con lo cual NO es necesario ingresar los  
+    comandos con la ruta absoluta del ejecutable, con el nombre del  comando  
+    basta.
     
     * Soporta las concatenaciones por medio de pipes ( | ).
 
@@ -21,7 +24,8 @@
             " ls -l | grep foo && cat foo | grep bar && ... | ..." 
 
 
-Trabajo hecho a propuesta de la cátedra Sistemas Operativos de la UNPSJB.
-Docente a cargo: Lic. Marcelo Gómez
-JTP:    Lic Lucy Gutierrez Marticorena
-Auxiliar: APU Leandro Luque
+Trabajo hecho a propuesta de la cátedra Sistemas Operativos de la UNPSJB.  
+Docente a cargo: Lic. Marcelo Gómez  
+JTP:    Lic Lucy Gutierrez Marticorena  
+Auxiliar: APU Leandro Luque  
+
