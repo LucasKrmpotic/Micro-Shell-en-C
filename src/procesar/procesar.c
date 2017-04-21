@@ -27,9 +27,9 @@
 int procesar (char * comandos) {
 
     /*  arreglos para los comandos  */
-    char * cmd_ampersand[MAX_LINE]; // para tokenizar por &&
-    char * cmd_pipes[MAX_LINE]; // para tokenizar por pipes
-    char * cmd_spaces[MAX_LINE];    // para tokenizar por espacios
+    char * cmd_ampersand[MAX]; // para tokenizar por &&
+    char * cmd_pipes[MAX]; // para tokenizar por pipes
+    char * cmd_spaces[MAX];    // para tokenizar por espacios
 
     /*  iterador y bandera  */
     int i = 0, flag = FALSE;

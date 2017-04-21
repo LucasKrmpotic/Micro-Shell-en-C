@@ -1,4 +1,4 @@
-#define MAX_LINE 200
+#define MAX 256
 
 #define SUCCESS 0
 
@@ -9,25 +9,34 @@
 #define delim_pipe "|"
 #define delim_space " "
 
+#define GREEN  "\033[1m\033[32m"
+#define BLUE   "\033[1m\033[34m"
+#define RESET  "\x1b[0m"
 
-#define X_PATH "/bin/"
 
-#define ANSI_COLOR_RED     "\x1b[31m"
-#define ANSI_COLOR_GREEN   "\x1b[32m"
-#define ANSI_COLOR_YELLOW  "\x1b[33m"
-#define ANSI_COLOR_BLUE    "\x1b[34m"
-#define ANSI_COLOR_MAGENTA "\x1b[35m"
-#define ANSI_COLOR_CYAN    "\x1b[36m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
+typedef struct {
 
-// /*  Execs  */
+    char PWD[MAX];
+    char HOME[MAX];
+    char USR[MAX];
+    char HOST[MAX];
+    char ** PATH;
+
+} t_env;
+
+/* Environment */
+t_env * env;
+
+ /*  Execs  */
 int ejecutar_comando (char *[]);
 int ejecutar_pipes (char *[]);
 
-// /*  Process   */
+ /*  Process   */
 int procesar (char *);
 
-// /*   Tokenize   */
+ /*   Tokenize   */
 void init_tks (char *[]);
 int tokenizar (char *, char *, char *[]);
-int add_path (char **);
+
+/*  config    */
+int getEnvironment (t_env *);

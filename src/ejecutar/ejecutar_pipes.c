@@ -24,7 +24,7 @@
 
 int ejecutar_pipes (char * cmds[]) {
 
-    char * comando[MAX_LINE]; // para tokenizar por espacios
+    char * comando[MAX]; // para tokenizar por espacios
     pid_t pid;
     int status;
 
@@ -78,9 +78,9 @@ int ejecutar_pipes (char * cmds[]) {
             
             init_tks(comando);
             tokenizar(cmds[i], delim_space, comando);
-            add_path(&comando[0]); 
+            //add_path(&comando[0]); 
 
-            if (execv(comando[0], comando) < 0){
+            if (execvpe(comando[0], comando, env->PATH) < 0){
 
                 perror("Error executing command"); 
                 exit (-1);

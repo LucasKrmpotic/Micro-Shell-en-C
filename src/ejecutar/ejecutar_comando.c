@@ -27,24 +27,40 @@ int ejecutar_comando (char * cmd[]){
     int status;
     pid_t child_pid;
     
-    add_path(&cmd[0]);
+    /*  Los comandos clear y cd se ejecutan sin fork() */
+    if (strcmp(cmd[0], "clear")==0){
 
-    if((child_pid = fork()) < 0){
-        exit(-1);
+        system("clear");
 
-    } else if (child_pid == 0) {
-        //hijo
-        if (execv(cmd[0], cmd ) < 0)
-            perror("Error executing command");
-            exit(1);
+    } else if (strcmp(cmd[0], "cd") == 0) {
+
+        if(chdir(cmd[1])!= SUCCESS){
+            perror("Error on directory change");
+            exit(-1);
+        }
+        getcwd(env->PWD, sizeof(env->PWD)); 
 
     } else {
-        //padre
-        waitpid(child_pid, &status, 0);
- 
-    }
 
-    if ( WIFEXITED(status) && WEXITSTATUS(status) != 0 )
-        return -1;             
+        /*  El comando no es ni cd ni clear */
+        if((child_pid = fork()) < 0){
+            perror("Error creating a process");
+            exit(-1);
+
+        } else if (child_pid == 0) {
+            //hijo
+            if (execvpe(cmd[0], cmd, env->PATH) < 0)
+                perror("Error executing command");
+                exit(1);
+
+        } else {
+            //padre
+            waitpid(child_pid, &status, 0);
+        }
+
+        if ( WIFEXITED(status) && WEXITSTATUS(status) != 0 )
+            return -1;
+
+    }
     return 0;
 }

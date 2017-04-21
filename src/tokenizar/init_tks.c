@@ -17,7 +17,7 @@
 */
 void init_tks (char * cmd_tks[]) {
     int i;
-    for (i = 0; i < MAX_LINE; i++){
+    for (i = 0; i < MAX; i++){
         cmd_tks[i] = NULL;
     }
 }
